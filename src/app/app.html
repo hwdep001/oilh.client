@@ -1,0 +1,35 @@
+<ion-split-pane when="md">
+  <ion-menu [content]="content" *ngIf="isSignedIn">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list *ngIf="alioPages != null">
+        <ion-list-header>
+          Alio
+        </ion-list-header>
+        <button menuClose ion-item *ngFor="let p of alioPages" (click)="openPage(p)">
+          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+      <ion-list *ngIf="settingPages != null">
+        <ion-list-header>
+          Setting
+        </ion-list-header>
+        <button menuClose ion-item *ngFor="let p of settingPages" (click)="openPage(p)">
+          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <!-- <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav> -->
+  <ion-nav [root]="rootPage" #content main></ion-nav>
+</ion-split-pane>

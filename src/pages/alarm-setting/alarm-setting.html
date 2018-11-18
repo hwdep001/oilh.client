@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Setting</ion-title>
+
+    <ion-buttons class="nav-btn" end *ngIf="asosChanged" (click)="save()" >
+      <button ion-button icon-only color="primary">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <ion-list>
+    <ion-item>
+        <ion-label>알림 허용</ion-label>
+        <ion-toggle item-right [(ngModel)]="asos.isAlarm" color="secondary" (ionChange)="changeAsos()"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>채용 분야</ion-label>
+      <ion-select [(ngModel)]="asos.detailCodeList" okText="Select" multiple="true" (ionChange)="changeAsos()">
+        <ion-option *ngFor="let item of aso.detailCodeList" [value]="item.key">{{item.value}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>근무지</ion-label>
+      <ion-select [(ngModel)]="asos.locationList" okText="Select" multiple="true" (ionChange)="changeAsos()">
+        <ion-option *ngFor="let item of aso.locationList" [value]="item.key">{{item.value}}</ion-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>고용형태</ion-label>
+      <ion-select [(ngModel)]="asos.workTypeList" okText="Select" multiple="true" (ionChange)="changeAsos()">
+        <ion-option *ngFor="let item of aso.workTypeList" [value]="item.key">{{item.value}}</ion-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>채용구분</ion-label>
+      <ion-select [(ngModel)]="asos.careerList" okText="Select" multiple="true" (ionChange)="changeAsos()">
+        <ion-option *ngFor="let item of aso.careerList" [value]="item.key">{{item.value}}</ion-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>대체인력유무</ion-label>
+      <ion-select [(ngModel)]="asos.replacement" okText="Select" (ionChange)="changeAsos()">
+        <ion-option *ngFor="let item of aso.replacementList" [value]="item.key">{{item.value}}</ion-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>기관명</ion-label>
+      <ion-select [(ngModel)]="asos.orgName" okText="Select" (ionChange)="changeAsos()">
+        <ion-option *ngFor="let item of aso.orgNameList" [value]="item.key">{{item.value}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

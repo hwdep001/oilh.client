@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>나의 채용 정보</ion-title>
+
+    <ion-buttons class="nav-btn" end (click)="openAlio()" >
+      <button ion-button icon-only color="primary">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons class="nav-btn" end (click)="settingIng()" >
+      <button ion-button icon-only color="primary">
+        <ion-icon name="options"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="bubbles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <ion-card *ngFor="let rs of rsArr" [ngClass]="getICardBoardClass(rs)" (click)="openAlioDetail(rs.idx)">
+      <ion-item class="card-top">
+        <div class="orgname">{{rs.orgName}}</div>
+        <div class="sedate">{{rs.sdate}}~{{rs.edate}}</div>
+      </ion-item>
+
+      <ion-card-content class="card-mid">
+        {{rs.title}}
+      </ion-card-content>
+
+      <ion-row class="card-bot">
+        <ion-col center text-center>
+          <ion-note>
+            {{rs.locations}}
+          </ion-note>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            {{rs.workTypes}}
+          </ion-note>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            {{rs.ing}}
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-list>
+
+  <ion-infinite-scroll *ngIf="isInfinitable" (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="dots">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

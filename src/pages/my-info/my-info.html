@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Info</ion-title>
+
+    <ion-buttons class="nav-btn" end (click)="signOut()" >
+      <button ion-button icon-only color="primary">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      Email
+      <ion-note item-end>{{(userInfo$ | async)?.email}}</ion-note>
+    </ion-item>
+    <ion-item>
+      Name
+      <ion-note item-end>{{(userInfo$ | async)?.name}}</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

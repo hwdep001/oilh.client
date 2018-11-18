@@ -1,0 +1,68 @@
+page-recruit-list {
+  ion-content {
+
+    .scroll-content {
+      
+      
+      
+      ion-list {
+        
+        ion-card {
+          border-top: 3px solid;
+          border-radius: 3px;
+
+          .card-top {
+
+            padding-left: 10px;
+            padding-right: 10px;
+
+            .item-inner {
+
+              .input-wrapper {
+  
+                ion-label {
+                  margin: 0px;
+                }
+              }
+            }
+
+            .orgname {
+              font-size: 14px;
+              font-weight: bold;
+            }
+
+            .sedate {
+              font-size: 12px;
+            }
+
+          }
+
+          .card-mid {
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 0px;
+
+            margin-top: 0px;
+            margin-bottom: 8px;
+
+            color: map-get($colors, sub-text);
+            font-size: 13px;
+          }
+
+          // .card-bot {}
+        }
+        
+        .icard-border-y {
+          border-color: map-get($ing-status, y) !important;
+        }
+        .icard-border-n {
+          border-color: map-get($ing-status, n) !important;
+        }
+        .icard-border-y {
+          border-color: black;
+        }
+
+      }
+    }
+  }
+}

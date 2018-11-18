@@ -1,0 +1,22 @@
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="signInfo.email" (keyup.enter)="signIn()"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="signInfo.pw" (keyup.enter)="signIn()"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <button ion-button block (click)="signIn()">
+        SIGN IN
+      </button>
+    </ion-item>
+    <ion-item class="sign-up-item">
+      <button ion-button block color="secondary" (click)="moveToSignUp()">
+        SIGN UP
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

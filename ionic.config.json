@@ -1,0 +1,8 @@
+{
+  "name": "hlio-client",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "76fcd18b"
+}
